@@ -2,8 +2,9 @@ package org.example;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,12 +19,12 @@ abstract public class BaseTest {
         Configuration.baseUrl = "https://ok.ru/";
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    @Before
+    @BeforeEach
     public void init(){
         setUp();
     }
-    /*@After
+    @AfterEach
     public void tearDown(){
         Selenide.closeWebDriver();
-    }*/
+    }
 }
