@@ -25,13 +25,15 @@ public class OKProfilePage {
     public boolean checkProfileExist() {
         return profileDsntExistsPic.exists();
     }
+    //Да, возможно парсер надо было засунуть куда-то в другое место.
     public String getAge (){
         String regex = "^.*?\\([^\\d]*(\\d+)[^\\d]*\\).*$";
-        String age = "";
-        Matcher matcher = Pattern.compile(regex).matcher(fieldDateOfBirth.getText());
+        String age = "0";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(fieldDateOfBirth.getText());
         while (matcher.find()) {
-            age = matcher.group() + matcher.start() + matcher.end();
+            age = matcher.group(1);
         }
-        return age;
+         return age;
     }
 }
